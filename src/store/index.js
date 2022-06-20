@@ -1,5 +1,5 @@
 import create from "zustand";
-import { devtools, persist } from "zustand/middleware";
+import { devtools } from "zustand/middleware";
 import { sudokuSolver } from "../utils/helpers";
 
 const createSudoku = (set) => ({
@@ -25,15 +25,12 @@ const createSudoku = (set) => ({
 		[0, 0, 0, 0, 0, 0, 0, 7, 4],
 		[0, 0, 5, 2, 0, 6, 3, 0, 0],
 	],
+	bear: 0,
 	solveSudoku: () =>
-		set((state) => ({ solvedSudokuArr: sudokuSolver(state.rawSudokuArr) })),
+		set((state) => ({
+			solvedSudokuArr: sudokuSolver(state.rawSudokuArr),
+		})),
 });
-const useSudoku = create(
-	devtools(
-		persist(createSudoku, {
-			name: "sudoku",
-		})
-	)
-);
+const useSudoku = create(devtools(createSudoku));
 
 export default useSudoku;
