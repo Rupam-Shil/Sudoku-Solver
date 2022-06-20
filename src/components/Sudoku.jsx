@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import useSudoku from "../store";
 
 function Sudoku() {
-	const { rawSudokuArr } = useSudoku((state) => ({
+	const { rawSudokuArr, changeArray } = useSudoku((state) => ({
 		rawSudokuArr: state.rawSudokuArr,
+		changeArray: state.changeArray,
 	}));
 
 	return (
@@ -14,9 +15,18 @@ function Sudoku() {
 						<div className="sudoku-row" key={index}>
 							{row.map((col, i) => {
 								return (
-									<div className="sudoku-col" key={i}>
-										{col}
-									</div>
+									<input
+										type="number"
+										className="sudoku-col"
+										key={i}
+										value={col}
+										onKeyDown={(e) => {
+											console.log(e.key);
+											if (!isNaN(parseInt(e.key))) {
+												changeArray(index, i, parseInt(e.key));
+											}
+										}}
+									/>
 								);
 							})}
 						</div>

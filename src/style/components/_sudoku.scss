@@ -1,14 +1,18 @@
 .sudoku {
 	--gap: 60px;
 	--border-radius: 15px;
+	--transition: 0.3s ease-in-out;
 	display: grid;
 	grid-template-rows: repeat(9, 1fr);
 	border-radius: var(--border-radius);
 	box-shadow: 0 0 15px rgba(247, 175, 108, 0.9);
-
+	transition: var(--transition);
+	gap: 0;
 	&-row {
 		display: grid;
 		grid-template-columns: repeat(9, 1fr);
+		transition: var(--transition);
+		gap: 0;
 	}
 	&-col {
 		width: var(--gap);
@@ -23,6 +27,8 @@
 		border: 1px solid #f2e3d7;
 		transition: 0.2s;
 		user-select: none;
+		outline: none;
+		text-align: center;
 		&:hover {
 			background: #fff;
 			transition: 0s;
@@ -45,6 +51,20 @@
 		}
 		.sudoku-col:last-child {
 			border-bottom-right-radius: var(--border-radius);
+		}
+	}
+
+	&.gap {
+		--invalid-gap: 5px;
+		gap: var(--invalid-gap);
+		box-shadow: none;
+		opacity: 0.5;
+
+		.sudoku-row {
+			gap: var(--invalid-gap);
+		}
+		.sudoku-col {
+			color: rgb(252, 122, 122) !important;
 		}
 	}
 }

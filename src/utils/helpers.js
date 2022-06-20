@@ -1,7 +1,7 @@
 export const sudokuSolver = (arr) => {
 	let tempArr = JSON.parse(JSON.stringify(arr));
-	helper(tempArr, 0, 0);
-	return tempArr;
+	let result = helper(tempArr, 0, 0);
+	return [tempArr, result];
 };
 
 const isSafe = (arr, row, col, val) => {

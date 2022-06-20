@@ -2,12 +2,13 @@ import React from "react";
 import useSudoku from "../store";
 
 function SudokuSolve() {
-	const { solvedSudokuArr, rawSudokuArr } = useSudoku((state) => ({
+	const { solvedSudokuArr, rawSudokuArr, solvable } = useSudoku((state) => ({
 		solvedSudokuArr: state.solvedSudokuArr,
 		rawSudokuArr: state.rawSudokuArr,
+		solvable: state.solvable,
 	}));
 	return (
-		<div className="sudoku">
+		<div className={`sudoku ${solvable ? "" : "gap"}`}>
 			{solvedSudokuArr.length &&
 				solvedSudokuArr.map((row, index) => {
 					return (
