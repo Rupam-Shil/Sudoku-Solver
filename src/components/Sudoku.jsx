@@ -25,6 +25,11 @@ function Sudoku() {
 												changeArray(index, i, parseInt(e.key));
 											}
 										}}
+										onChange={(e) => {
+											if (!isNaN(parseInt(e.nativeEvent.data))) {
+												changeArray(index, i, parseInt(e.nativeEvent.data));
+											}
+										}}
 									/>
 								);
 							})}
