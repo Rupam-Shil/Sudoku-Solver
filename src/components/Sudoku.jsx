@@ -12,7 +12,7 @@ function Sudoku() {
 			{rawSudokuArr.length &&
 				rawSudokuArr.map((row, index) => {
 					return (
-						<div className="sudoku-row" key={index}>
+						<div className={`sudoku-row `} key={index}>
 							{row.map((col, i) => {
 								return (
 									<input
@@ -24,7 +24,6 @@ function Sudoku() {
 											if (!isNaN(parseInt(e.key))) {
 												changeArray(index, i, parseInt(e.key));
 											}
-											console.log(row);
 										}}
 									/>
 								);

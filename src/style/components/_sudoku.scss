@@ -2,6 +2,7 @@
 	--gap: 60px;
 	--border-radius: 15px;
 	--transition: 0.3s ease-in-out;
+	--text-size: 24px;
 	display: grid;
 	grid-template-rows: repeat(9, 1fr);
 	border-radius: var(--border-radius);
@@ -21,7 +22,7 @@
 		justify-content: center;
 		align-items: center;
 		background: #fff3e7;
-		font-size: 24px;
+		font-size: var(--text-size);
 		color: #fd9d5d;
 		cursor: pointer;
 		border: 1px solid #f2e3d7;
@@ -66,5 +67,19 @@
 		.sudoku-col {
 			color: rgb(252, 122, 122) !important;
 		}
+	}
+	.sudoku-row:nth-child(3n):not(:last-child) {
+		.sudoku-col {
+			border-bottom: 2px solid #f0c8ad;
+		}
+	}
+	.sudoku-col:nth-child(3n):not(:last-child) {
+		border-right: 2px solid #f0c8ad;
+	}
+}
+@media only screen and (max-width: 1200px) {
+	.sudoku {
+		--gap: 35px;
+		--text-size: 18px;
 	}
 }
