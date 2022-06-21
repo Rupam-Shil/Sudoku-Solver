@@ -28,8 +28,9 @@ const createSudoku = (set) => ({
 	changeArray: (row, col, val) => {
 		set((state) => {
 			state.rawSudokuArr[row][col] = val;
-			state.solveSudoku();
-
+			setTimeout(() => {
+				state.solveSudoku();
+			}, 500);
 			return {
 				rawSudokuArr: state.rawSudokuArr,
 			};

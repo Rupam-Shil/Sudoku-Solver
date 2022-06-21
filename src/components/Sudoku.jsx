@@ -16,15 +16,15 @@ function Sudoku() {
 							{row.map((col, i) => {
 								return (
 									<input
-										type="number"
+										type="text"
 										className="sudoku-col"
 										key={i}
-										value={col}
+										value={rawSudokuArr[index][i]}
 										onKeyDown={(e) => {
-											console.log(e.key);
 											if (!isNaN(parseInt(e.key))) {
 												changeArray(index, i, parseInt(e.key));
 											}
+											console.log(row);
 										}}
 									/>
 								);
